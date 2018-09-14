@@ -53,3 +53,67 @@ Each arena has its own lock. This ensures that at any point of time, only one th
 The malloc_stats() API prints on the console information like used blocks, free blocks, total free requests and total allocation requests for each arena. The number of allocation and free requests are considering both, the ones handled by my library entirely and the ones handled by mmap() and munmap(). The number of used blocks and free blocks are given considering just the ones present or used from arenas created by my library and not mmap/munmap.
 
 mallinfo() has also been implemented. But it is not a full version like glibc. My implementation will provide information like the number of free blocks and used blocks taken across all the arena together. This API provides total information of all arenas, which is unlike malloc_stats() that provides information per arena.
+
+
+--------------- Running the tests and other Makefile recipes --------------------
+
+Please check the 'Makefile' for detailed recipes. Important ones are as follows:
+
+1) make check: Runs the test suite for t-test1.c
+2) make check1: Runs the test suite for test1.c (my single-threaded test)
+3) make check2: Runs the test suite for test2_withThreads.c (my multi-threaded test)
+4) make val: Runs Valgrind tool for t-test1.c.
+5) make val1: Runs Valgrind tool for test1.c.
+6) make clean: Removes generated binaries.
+7) make deb : Debug using gdb t-test1.c
+8) make deb1 : Debug using gdb test1.c (my single-threaded test)
+9) make deb2 : Debug using gdb test2_withThreads.c (my multi-threaded test)
+
+
+
+
+--------------------- Valgrind tool's results for t-test1.c ---------------------
+
+HEAP SUMMARY:
+==29744==     in use at exit: 0 bytes in 0 blocks
+==29744==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==29744== 
+==29744== All heap blocks were freed -- no leaks are possible
+==29744== 
+==29744== For counts of detected and suppressed errors, rerun with: -v
+==29744== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==29742== 
+==29742== HEAP SUMMARY:
+==29742==     in use at exit: 2,653 bytes in 79 blocks
+==29742==   total heap usage: 82 allocs, 3 frees, 2,765 bytes allocated
+==29742== 
+==29742== LEAK SUMMARY:
+==29742==    definitely lost: 0 bytes in 0 blocks
+==29742==    indirectly lost: 0 bytes in 0 blocks
+==29742==      possibly lost: 0 bytes in 0 blocks
+==29742==    still reachable: 2,653 bytes in 79 blocks
+==29742==         suppressed: 0 bytes in 0 blocks
+==29742== Reachable blocks (those to which a pointer was found) are not shown.
+==29742== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==29742== 
+==29742== For counts of detected and suppressed errors, rerun with: -v
+==29742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+---------------------------------------------------------------------------------------------------
+
+
+NOTE:  
+
+This library has been developed and tested on a 64-bit Linux (Ubuntu) system with a page size of 
+4096 bytes. Using the library on a system with a different configuration might give rise to some 
+minor issues as it has not been tested for the same.
+
+
+-------------------------------- References --------------------------------------
+
+1) https://en.wikipedia.org/wiki/Buddy_memory_allocation
+2) www.cs.uml.edu/~jsmith/OSReport/frames.html
+3) http://www.cs.cmu.edu/afs/cs/academic/class/15213-s15/www/recitations/rec11.pdf
+4) http://www.cs.cmu.edu/afs/cs/academic/class/15213-s11/www/lectures/20-allocation-advanced.pdf
+5) https://stackoverflow.com/questions/1919183/how-to-allocate-and-free-aligned-memory-in-c
+
