@@ -55,7 +55,7 @@ The malloc_stats() API prints on the console information like used blocks, free 
 mallinfo() has also been implemented. But it is not a full version like glibc. My implementation will provide information like the number of free blocks and used blocks taken across all the arena together. This API provides total information of all arenas, which is unlike malloc_stats() that provides information per arena.
 
 
---------------- Running the tests and other Makefile recipes --------------------
+## Running the tests and other Makefile recipes
 
 Please check the 'Makefile' for detailed recipes. Important ones are as follows:
 
@@ -72,7 +72,7 @@ Please check the 'Makefile' for detailed recipes. Important ones are as follows:
 
 
 
---------------------- Valgrind tool's results for t-test1.c ---------------------
+## Valgrind tool's results for t-test1.c
 
 HEAP SUMMARY:
 ==29744==     in use at exit: 0 bytes in 0 blocks
@@ -99,17 +99,15 @@ HEAP SUMMARY:
 ==29742== For counts of detected and suppressed errors, rerun with: -v
 ==29742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
----------------------------------------------------------------------------------------------------
 
-
-NOTE:  
+## NOTE  
 
 This library has been developed and tested on a 64-bit Linux (Ubuntu) system with a page size of 
 4096 bytes. Using the library on a system with a different configuration might give rise to some 
 minor issues as it has not been tested for the same.
 
 
--------------------------------- References --------------------------------------
+## References
 
 1) https://en.wikipedia.org/wiki/Buddy_memory_allocation
 2) www.cs.uml.edu/~jsmith/OSReport/frames.html
