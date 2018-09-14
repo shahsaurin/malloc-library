@@ -1,6 +1,9 @@
 
 # Multi-Threaded Malloc Library (using C)
 
+Author: Saurin Hiteshkumar Shah
+
+
 Writing this library was a part of the course 'CS5600 Computer Systems' at Northeastern 
 University, Boston; and hence I have its complete implementation in a private repository
 in order to comply with the policies of my university. If you are interested in having a 
