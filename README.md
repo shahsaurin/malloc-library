@@ -108,13 +108,3 @@ HEAP SUMMARY:
 This library has been developed and tested on a 64-bit Linux (Ubuntu) system with a page size of 
 4096 bytes. Using the library on a system with a different configuration might give rise to some 
 minor issues as it has not been tested for the same.
-
-
-## References
-
-1) https://en.wikipedia.org/wiki/Buddy_memory_allocation
-2) www.cs.uml.edu/~jsmith/OSReport/frames.html
-3) http://www.cs.cmu.edu/afs/cs/academic/class/15213-s15/www/recitations/rec11.pdf
-4) http://www.cs.cmu.edu/afs/cs/academic/class/15213-s11/www/lectures/20-allocation-advanced.pdf
-5) https://stackoverflow.com/questions/1919183/how-to-allocate-and-free-aligned-memory-in-c
-
